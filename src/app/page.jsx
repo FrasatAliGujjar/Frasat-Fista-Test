@@ -1,5 +1,7 @@
+"use client"
+
 import Image from 'next/image'
-import React from 'react'
+import React, { useState } from 'react'
 import Logo from '@/app/assets/images/logo/logo.png'
 import IconImage from '@/app/assets/images/icons-box.png'
 import portion3_part1 from '@/app/assets/images/portion3_part1.png'
@@ -8,10 +10,73 @@ import portion5 from '@/app/assets/images/portion5.png'
 import charts from '@/app/assets/images/charts.png'
 import batch from '@/app/assets/images/batch.png'
 import { CheckCircle } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { FaXTwitter, FaLinkedin } from "react-icons/fa6";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 const Home = () => {
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  // ======================================================================
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const data = [
+    { name: 'Page A', uv: 4000, pv: 2400, amt: 2400 },
+    { name: 'Page B', uv: 3000, pv: 1398, amt: 2210 },
+    { name: 'Page C', uv: 2000, pv: 9800, amt: 2290 },
+    { name: 'Page D', uv: 2780, pv: 3908, amt: 2000 },
+    { name: 'Page E', uv: 1890, pv: 4800, amt: 2181 },
+    { name: 'Page F', uv: 2390, pv: 3800, amt: 2500 },
+    { name: 'Page G', uv: 3490, pv: 4300, amt: 2100 },
+  ];
+
+  const handleClick = (data, index) => {
+    setActiveIndex(index);
+  };
+
+  // ======================================================================
+
+
+
+
+
+
+
 
 
   const topCards = [
@@ -60,31 +125,58 @@ const Home = () => {
         <div className="box1 h-[auto] bg-black text-white border-2 border-solid border-black rounded-4xl">
 
 
+
           {/* =============================================== */}
-          <nav className="bg-black text-white py-4 px-6 flex justify-between rounded-4xl items-center">
+          <nav className="bg-black text-white py-4 px-6 flex justify-between items-center rounded-4xl shadow-lg">
             {/* Logo */}
             <div className="flex items-center space-x-2">
-              <Image src={Logo} alt="Logo" className='w-[200px] h-[50px]' />
+              <Image src={Logo} alt="Logo" className="w-[200px] h-[50px]" />
             </div>
 
-            {/* Navigation Links */}
+            {/* Navigation Links for Medium and Larger Screens */}
             <div className="hidden md:flex space-x-6">
-              <a href="#" className="hover:text-gray-400">Product</a>
-              <a href="#" className="hover:text-gray-400">Resources</a>
-              <a href="#" className="hover:text-gray-400">Customers</a>
-              <a href="#" className="hover:text-gray-400">Careers</a>
+              <a href="#" className="hover:text-gray-400 transition">Product</a>
+              <a href="#" className="hover:text-gray-400 transition">Resources</a>
+              <a href="#" className="hover:text-gray-400 transition">Customers</a>
+              <a href="#" className="hover:text-gray-400 transition">Careers</a>
             </div>
 
             {/* Sign-in Button */}
-            <button className="border border-gray-500 px-4 py-2 rounded-[200px] hover:bg-gray-800 hidden md:block">
+            <button className="hidden md:block border border-gray-500 px-4 py-2 rounded-full hover:bg-gray-800 transition">
               Sign in
             </button>
 
             {/* Mobile Menu Button */}
-            <button className="md:hidden text-white focus:outline-none">
+            <button
+              className="md:hidden text-white focus:outline-none text-2xl"
+              onClick={() => setIsOpen(!isOpen)}
+            >
               ☰
             </button>
+
+            {/* Mobile Menu Dropdown */}
+            <AnimatePresence>
+              {isOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.3 }}
+                  className="absolute top-16 w-[80%] bg-black text-white p-4 shadow-lg rounded-b-2xl md:hidden"
+                >
+                  <a href="#" className="block py-2 hover:text-gray-400">Product</a>
+                  <a href="#" className="block py-2 hover:text-gray-400">Resources</a>
+                  <a href="#" className="block py-2 hover:text-gray-400">Customers</a>
+                  <a href="#" className="block py-2 hover:text-gray-400">Careers</a>
+                  <button className="border border-gray-500 px-4 py-2 rounded-full hover:bg-gray-800 w-full mt-2 transition">
+                    Sign in
+                  </button>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </nav>
+
+
           {/* =============================================== */}
 
 
@@ -130,7 +222,7 @@ const Home = () => {
             <div className="md:w-1/2 h-[500px] border-0 border-solid border-red-600 flex justify-center items-center mt-12 md:mt-0 relative overflow-hidden">
               {/* Background Video */}
               <video
-                className="absolute top-0 left-0 w-full h-full object-cover"
+                className="absolute top-0 left-0 w-2xl md:w-full md:h-full object-cover"
                 src="/Prism.mp4"
                 autoPlay
                 loop
@@ -326,7 +418,7 @@ const Home = () => {
                   {/* Surrounding Icons */}
                   <div className="image-box">
 
-                    <Image src={IconImage} alt="Logo" className='rounded-[10px] w-[500px] h-[600px]' />
+                    <Image src={IconImage} alt="Logo" className='rounded-[10px] md:w-[500px] md:h-[450px]' />
 
                   </div>
 
@@ -359,48 +451,31 @@ const Home = () => {
 
         <div className='my-5'>
           {/* =========================================================================== */}
-          <div className="flex justify-center items-center min-h-screen bg-gray-200 p-8">
+          <div className="flex justify-center items-center min-h-screen bg-gray-200 p-4 md:p-8">
             {/* Main Container */}
-            <div className="grid grid-cols-2 gap-6 bg-white p-6 rounded-xl shadow-lg w-full max-w-5xl">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-white p-4 md:p-6 rounded-xl shadow-lg w-full max-w-5xl">
               {/* Agent Assistance Section */}
-              <div className="bg-gray-100 p-6 rounded-lg relative">
-                <h2 className="text-2xl font-semibold">Agent Assistance</h2>
+              <div className="bg-gray-100 p-4 md:p-6 rounded-lg relative flex flex-col items-center text-center md:text-left">
+                <h2 className="text-xl md:text-2xl font-semibold">Agent Assistance</h2>
                 <p className="text-gray-600 mt-2">
                   Supercharge your team with an AI copilot that will do the heavy lifting on mundane tasks and continuously learn from agents.
                 </p>
-
                 {/* Floating Actions */}
-                <div className="relative flex justify-center items-center mt-6">
-
-
-                  <Image src={portion3_part1} alt="Logo" className='rounded-[10px] w-[300px] h-[300px]' />
-
-
+                <div className="flex justify-center items-center mt-4 md:mt-6">
+                  <Image src={portion3_part1} alt="Logo" className='rounded-[10px] w-[250px] h-[250px] md:w-[300px] md:h-[300px]' />
                 </div>
               </div>
 
               {/* AI-powered Insights Section */}
-              <div className="bg-gray-100 p-6 rounded-lg">
-                <h2 className="text-2xl font-semibold">AI-powered Insights</h2>
+              <div className="bg-gray-100 p-4 md:p-6 rounded-lg flex flex-col items-center text-center md:text-left">
+                <h2 className="text-xl md:text-2xl font-semibold">AI-powered Insights</h2>
                 <p className="text-gray-600 mt-2">
                   Identify themes, find anomalies, and unlock your own analyses over your valuable conversations.
                 </p>
-
-
-
-
-
                 {/* Stats Section */}
-                <div className="mt-6 bg-white p-4 rounded-lg shadow-md">
-
-                  <Image src={portion3_part2} alt="Logo" className='rounded-[10px] w-[100%] h-[300px]' />
-
+                <div className="mt-4 md:mt-6 bg-white p-4 rounded-lg shadow-md w-full">
+                  <Image src={portion3_part2} alt="Logo" className='rounded-[10px] w-full h-[250px] md:h-[300px]' />
                 </div>
-
-
-
-
-
               </div>
             </div>
           </div>
@@ -427,38 +502,42 @@ const Home = () => {
 
         <div className='my-5'>
           {/* ====================================================================== */}
-          <div className="flex justify-center items-center h-[400px] bg-gray-200 p-8">
-            <div className="relative text-center max-w-2xl mx-auto">
-              {/* Decorative Borders */}
-              <div className="absolute top-0 left-0 text-blue-600 text-xl">╭</div>
-              <div className="absolute top-0 right-0 text-blue-600 text-xl">╮</div>
-              <div className="absolute bottom-0 left-0 text-blue-600 text-xl">╰</div>
-              <div className="absolute bottom-0 right-0 text-blue-600 text-xl">╯</div>
+          <div className="flex flex-col justify-center items-center h-[400px] bg-gray-200 p-4 md:p-8">
 
-              {/* Heading */}
-              <p className="text-gray-500 text-sm mb-2">Why us?</p>
-              <h2 className="text-4xl font-serif font-bold text-gray-900">
-                Unlike any product <br /> you've used before.
-              </h2>
+            {/* Why Us Section */}
+            <div className="flex justify-center items-center h-auto md:h-[400px] bg-gray-200 p-4 md:p-8 w-full max-w-5xl mt-8">
+              <div className="relative text-center max-w-2xl mx-auto">
+                {/* Decorative Borders */}
+                <div className="absolute top-0 left-0 text-blue-600 text-xl">╭</div>
+                <div className="absolute top-0 right-0 text-blue-600 text-xl">╮</div>
+                <div className="absolute bottom-0 left-0 text-blue-600 text-xl">╰</div>
+                <div className="absolute bottom-0 right-0 text-blue-600 text-xl">╯</div>
 
-              {/* Feature Buttons */}
-              <div className="flex justify-center mt-6 space-x-4">
-                {/* First Button */}
-                <div className="flex items-center space-x-2 bg-white px-4 py-2 rounded-full shadow-md border">
-                  <span className="text-lg">📊</span>
-                  <span className="text-gray-800 text-sm font-medium">Powerful Analytics</span>
-                </div>
+                {/* Heading */}
+                <p className="text-gray-500 text-sm mb-2">Why us?</p>
+                <h2 className="text-2xl md:text-4xl font-serif font-bold text-gray-900">
+                  Unlike any product <br className="hidden md:block" /> you've used before.
+                </h2>
 
-                {/* Second Button */}
-                <div className="flex items-center space-x-2 bg-white px-4 py-2 rounded-full shadow-md border">
-                  <span className="text-lg">💻</span>
-                  <span className="text-gray-800 text-sm font-medium">No Engineering Lift</span>
-                </div>
+                {/* Feature Buttons */}
+                <div className="flex flex-wrap justify-center mt-6 gap-4">
+                  {/* First Button */}
+                  <div className="flex items-center space-x-2 bg-white px-4 py-2 rounded-full shadow-md border">
+                    <span className="text-lg">📊</span>
+                    <span className="text-gray-800 text-sm font-medium">Powerful Analytics</span>
+                  </div>
 
-                {/* Third Button */}
-                <div className="flex items-center space-x-2 bg-white px-4 py-2 rounded-full shadow-md border">
-                  <span className="text-lg">⚙️</span>
-                  <span className="text-gray-800 text-sm font-medium">It Just Works</span>
+                  {/* Second Button */}
+                  <div className="flex items-center space-x-2 bg-white px-4 py-2 rounded-full shadow-md border">
+                    <span className="text-lg">💻</span>
+                    <span className="text-gray-800 text-sm font-medium">No Engineering Lift</span>
+                  </div>
+
+                  {/* Third Button */}
+                  <div className="flex items-center space-x-2 bg-white px-4 py-2 rounded-full shadow-md border">
+                    <span className="text-lg">⚙️</span>
+                    <span className="text-gray-800 text-sm font-medium">It Just Works</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -505,13 +584,31 @@ const Home = () => {
             <div className="flex flex-col md:flex-row items-center gap-6">
               {/* Chart Section (Replaced with Image) */}
               <div className="bg-white shadow-md rounded-lg p-4 w-full md:w-2/3 relative">
-                <div className="absolute top-3 left-3 bg-white p-3 shadow rounded-lg">
-                  <h3 className="text-lg text-gray-600 font-medium">March <span className="text-gray-400">2025</span></h3>
-                  <p className="text-blue-600 text-sm">⬛ Tickets resolved</p>
-                  <p className="text-red-600 text-sm">⬤ Average CSAT</p>
-                </div>
 
-                <Image src={charts} alt="Logo" className='rounded-[10px] w-[100%] h-[300px]' />
+                {/* Chart Controls */}
+                {/* ================================================================= */}
+                <div style={{ width: '100%', textAlign: 'center' }}>
+                  <p>Click each bar to see details</p>
+                  <ResponsiveContainer width="100%" height={300}>
+                    <BarChart data={data} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
+                      <CartesianGrid strokeDasharray="3 3" />
+                      <XAxis dataKey="name" />
+                      <YAxis />
+                      <Tooltip />
+                      <Legend />
+                      <Bar dataKey="uv" onClick={handleClick}>
+                        {data.map((entry, index) => (
+                          <Cell key={`cell-${index}`} cursor="pointer" fill={index === activeIndex ? '#82ca9d' : '#8884d8'} />
+                        ))}
+                      </Bar>
+                    </BarChart>
+                  </ResponsiveContainer>
+                  <p className="content">{`Uv of "${data[activeIndex].name}": ${data[activeIndex].uv}`}</p>
+                </div>
+                {/* ================================================================= */}
+
+
+
 
 
               </div>
@@ -808,7 +905,7 @@ const Home = () => {
             {/* Left Section - Logo & Copyright */}
             <div className="flex flex-col items-center md:items-start">
 
-              <Image src={Logo} alt="Logo" className='rounded-[10px] w-[100px] h-[100px]' />
+              <Image src={Logo} alt="Logo" className='rounded-[10px] w-[150px] h-[100px]' />
 
               <p className="text-gray-400">© 2025 Decagon. All rights reserved.</p>
             </div>
@@ -846,14 +943,16 @@ const Home = () => {
               <Image src={batch} alt="Logo" className='rounded-[10px] w-[100px] h-[100px]' />
 
               {/* Social Media Icons */}
-              <div className="flex space-x-4">
-                <a href="#" className="hover:opacity-80">
-                  <img src="/x-icon.png" alt="Twitter/X" className="h-6" />
+              <div className="flex justify-between mt-5 w-[100px] space-x-4">
+                <a href="#" className="hover:opacity-80 text-gray-600 text-2xl">
+                  <FaXTwitter className='text-white' />
                 </a>
-                <a href="#" className="hover:opacity-80">
-                  <img src="/linkedin-icon.png" alt="LinkedIn" className="h-6" />
+                <a href="#" className="hover:opacity-80 text-gray-600 text-2xl">
+                  <FaLinkedin className='text-white' />
                 </a>
               </div>
+
+
             </div>
           </div>
         </footer>
