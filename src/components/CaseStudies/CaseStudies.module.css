@@ -1,0 +1,46 @@
+/* Custom styles for CaseStudies component */
+.caseStudiesSection {
+  background-color: #111111;
+  position: relative;
+  min-height: fit-content;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Corner decorations */
+.caseStudiesSection::before,
+.caseStudiesSection::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.caseStudiesSection::before {
+  top: 40px;
+  left: 40px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.caseStudiesSection::after {
+  bottom: 40px;
+  right: 40px;
+  border-left: none;
+  border-top: none;
+}
+
+/* Optional: Add a subtle gradient overlay */
+.caseStudiesSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(40, 40, 40, 0.2) 0%, rgba(17, 17, 17, 0.4) 100%);
+  pointer-events: none;
+}

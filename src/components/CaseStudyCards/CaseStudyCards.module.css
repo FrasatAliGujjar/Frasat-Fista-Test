@@ -1,0 +1,18 @@
+/* Custom styles for CaseStudyCards component */
+.cardHover {
+  transition: transform 0.3s ease-in-out;
+}
+
+.cardHover:hover {
+  transform: scale(1.02);
+}
+
+/* Optional: Add a subtle shadow effect on hover */
+.cardHover:hover::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  border-radius: inherit;
+  pointer-events: none;
+} 

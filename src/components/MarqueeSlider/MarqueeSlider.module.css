@@ -1,0 +1,41 @@
+.marqueeContainer {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    max-width: 100vw;
+}
+
+.marqueeTrack {
+    display: flex;
+    animation: scroll 5s linear infinite;
+    width: fit-content;
+}
+
+.marqueeContent {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 1rem;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Pause animation on hover */
+.marqueeTrack:hover {
+    animation-play-state: paused;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .marqueeContent {
+        gap: 0.5rem;
+        padding: 0 0.5rem;
+    }
+} 

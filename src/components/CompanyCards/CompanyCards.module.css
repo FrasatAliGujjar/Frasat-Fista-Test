@@ -1,0 +1,39 @@
+/* Custom styles for CompanyCards */
+.card {
+    transition: all 0.3s ease-in-out;
+}
+
+.topSection {
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+}
+
+.card:hover .overlay {
+    opacity: 1;
+}
+
+.dotPattern {
+    background-image: radial-gradient(circle, #333333 1.5px, transparent 1.5px);
+    background-size: 16px 16px;
+    background-position: 0 0;
+    opacity: 0.3;
+}
+
+/* Bottom section styles */
+.bottomSection {
+    background-color: #1C1C1C;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Optional: Add subtle shadow on hover */
+.card:hover {
+    transform: translateY(-4px);
+} 
