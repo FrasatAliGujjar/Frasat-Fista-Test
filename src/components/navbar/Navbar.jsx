@@ -49,7 +49,7 @@ const Navbar = () => {
                     </div>
 
                     {/* Desktop Menu */}
-                    <div className="hidden md:flex items-center space-x-2 ml-[-350px] mt-3">
+                    <div className="hidden md:flex items-center border-0 border-red-700 space-x-2 ml-[-500px] mt-3">
                         <div className="relative">
                             <button
                                 onMouseEnter={() => setShowProductDropdown(true)}
@@ -115,7 +115,7 @@ const Navbar = () => {
                     </div>
 
                     {/* Right side buttons */}
-                    <div className="hidden md:flex items-center space-x-4">
+                    <div className="hidden md:flex ml-[-250px] mr-[30px] border-0 border-red-700 items-center space-x-4">
                         <Link
                             href="/signin"
                             className={`px-6 py-2.5 text-sm font-medium rounded-full transition-all duration-300 ${isScrolled

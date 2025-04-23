@@ -10,7 +10,7 @@ import ripplingLogo from '@/assets/CaseStudyCard/leftlogo.png';
 const CaseStudyCards = () => {
     return (
         <section className="bg-[#111111] md:px-4 md:py-20 border-0 border-white">
-            <div className="container mx-auto">
+            <div className="mx-auto">
                 <div className="flex p-2 md:p-16 flex-col lg:flex-row gap-5 md:gap-6">
                     {/* Left Card - 70% width */}
                     <div className="w-full lg:w-[70%] relative overflow-hidden rounded-2xl cursor-pointer group">

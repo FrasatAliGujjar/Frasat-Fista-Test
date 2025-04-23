@@ -35,8 +35,8 @@ const CaseStudies = () => {
 
     return (
         <section className={styles.caseStudiesSection}>
-            <div className="container mx-auto md:px-4 md:py-32">
-                <div className="max-w-[1000px] mx-auto text-center">
+            <div className="mx-auto md:px-4 md:py-32">
+                <div className="max-w-[1000px] border-0 border-red-700 mx-auto text-center">
                     {/* Subtitle */}
                     <p className="text-[#9CA3AF] text-lg mb-6 tracking-wide">
                         Case studies

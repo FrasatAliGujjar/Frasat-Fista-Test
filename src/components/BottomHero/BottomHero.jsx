@@ -6,7 +6,7 @@ import Footer from '../Footer/Footer';
 const BottomHero = () => {
     return (
         <>
-            <section className="relative bg-[#111111] h-fit flex flex-col items-center justify-center overflow-hidden">
+            <section className="border-0 border-red-700 relative bg-[#111111] h-fit flex flex-col items-center justify-center overflow-hidden">
                 {/* Background gradient effect */}
                 <div className="absolute inset-0">
                     <div className="absolute inset-0 bg-gradient-radial from-purple-500/10 via-transparent to-transparent"></div>
@@ -14,7 +14,7 @@ const BottomHero = () => {
                 </div>
 
                 {/* Content Container */}
-                <div className="container h-fit border-0 border-red-600  mx-auto  relative">
+                <div className="h-fit border-0 border-red-600  mx-auto  relative">
                     <div className="flex flex-col items-center text-center max-w-5xl mx-auto">
                         {/* Heading */}
                         <h1 className="z-2 text-4xl mt-20 md:text-2xl lg:text-5xl text-white font-serif mb-20 tracking-wide leading-tight">
@@ -22,7 +22,7 @@ const BottomHero = () => {
                         </h1>
 
                         {/* Crystal Video Container */}
-                        <div className="relative w-full max-w-2xl aspect-[16/9] mt-8">
+                        <div className="relative w-screen max-w-2xl aspect-[16/9] mt-8">
                             <div className="absolute inset-0 flex items-center justify-center">
                                 {/* Glow effect behind video */}
                                 <div className="absolute w-full h-full bg-gradient-radial from-purple-500/20 via-transparent to-transparent blur-xl"></div>

@@ -22,7 +22,7 @@ const About = () => {
     ]
 
     return (
-        <section className="container mx-auto px-4 py-20">
+        <section className="border-0 border-red-700 mx-auto px-4 py-20">
             {/* Small "About" text */}
             <div className="text-center mb-8">
                 <span className="text-gray-600 text-lg">About</span>

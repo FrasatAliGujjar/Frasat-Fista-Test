@@ -8,7 +8,7 @@ import Marquee from '../MarqueeSlider/MarqueeSlider';
 const Footer = () => {
     return (
         <footer className="bg-black text-white mt-[-120px] md:mt-[-230px] z-200">
-            <div className="container border-0 border-red-500 mx-auto px-8 py-7">
+            <div className="border-0 w-screen border-red-500  px-8 py-7">
                 {/* Top Section with Logo and Navigation */}
                 <div className="flex flex-col lg:flex-row justify-between items-start mb-16">
                     {/* Logo Section */}

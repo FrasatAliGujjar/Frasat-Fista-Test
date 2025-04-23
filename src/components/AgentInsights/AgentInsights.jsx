@@ -14,7 +14,7 @@ const SemiCircleChart = dynamic(() => import('./SemiCircleChart'), {
 
 const AgentInsights = () => {
     return (
-        <section className="container mx-auto px-4 md:py-20">
+        <section className="border-0 border-red-700 mx-auto px-4 md:py-20">
             <div className="grid grid-cols-10 gap-6">
                 {/* Left Card - Agent Assistance */}
                 <div className="col-span-10 md:col-span-6 bg-[#FAFAFA] rounded-[32px] p-8 md:p-10 shadow-sm relative overflow-hidden">

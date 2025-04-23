@@ -3,6 +3,7 @@
   background-color: #111111;
   position: relative;
   min-height: fit-content;
+  /* border: 2px solid red; */
   padding: 20px;
   display: flex;
   align-items: center;

@@ -13,7 +13,7 @@ import Footer from "@/components/Footer/Footer";
 export default function Home() {
   return (
     <>
-      <div className="bg-[#e0e0e0]">
+      <div className="bg-[#e0e0e0] m-[0px]">
         {/* =========================================== */}
         <Hero />
         <About />

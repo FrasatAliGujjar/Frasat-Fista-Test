@@ -36,8 +36,12 @@ const SemiCircleChart = () => {
     }
 
     return (
-        <div className="mt-4 -mb-[100px] -mx-8">
-            <PieChart width={500} height={300}>
+        <div className="w-screen mt-4 -mb-[100px] border-0 border-red-700">
+            <PieChart 
+            width={500} 
+            height={300}
+            
+            >
                 <Tooltip content={<CustomTooltip />} />
                 <Pie
                     data={data}
@@ -49,6 +53,7 @@ const SemiCircleChart = () => {
                     outerRadius={120}
                     paddingAngle={0}
                     dataKey="value"
+                    
                     onMouseEnter={onMouseEnter}
                     onMouseLeave={onMouseLeave}
                 >
